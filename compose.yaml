@@ -59,11 +59,13 @@ services:
       - postgres
 
   nginx:
-    depends_on:
-      - mattermost
+    image: nginx:${NGINX_IMAGE_TAG}
     env_file:
       - env
-    image: nginx:${NGINX_IMAGE_TAG}
+    environment:
+      - TZ=${TZ}
+    depends_on:
+      - mattermost
     restart: ${RESTART_POLICY}
     security_opt:
       - no-new-privileges:true
@@ -79,7 +81,5 @@ services:
       - ${CERT_PATH}:/cert.pem:ro
       - ${KEY_PATH}:/key.pem:ro
       - shared-webroot:/usr/share/nginx/html
-    environment:
-      - TZ=${TZ}
     ports:
       - 3003:80
