@@ -14,7 +14,7 @@ services:
   postgres:
     image: postgres:${POSTGRES_IMAGE_TAG}
     env_file:
-      - env
+      - mattermost/env
     restart: ${RESTART_POLICY}
     security_opt:
       - no-new-privileges:true
@@ -34,7 +34,7 @@ services:
   mattermost:
     image: mattermost/${MATTERMOST_IMAGE}:${MATTERMOST_IMAGE_TAG}
     env_file:
-      - env
+      - mattermost/env
     restart: ${RESTART_POLICY}
     environment:
       - TZ=${TZ}
@@ -61,7 +61,7 @@ services:
   nginx:
     image: nginx:${NGINX_IMAGE_TAG}
     env_file:
-      - env
+      - mattermost/env
     environment:
       - TZ=${TZ}
     depends_on:
