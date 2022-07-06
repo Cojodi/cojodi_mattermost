@@ -1,4 +1,4 @@
-version: "2.4"
+version: "3.7"
 
 # Shared volume for Let's Encrypt certificate renewal with a webroot
 volumes:
