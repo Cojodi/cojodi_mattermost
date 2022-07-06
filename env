@@ -1,8 +1,11 @@
-DOMAIN=minting.dns.army/mattermost
+DOMAIN=chat.cojodi.com
 
-TZ='Europe/Berlin'
+TZ=Europe/Berlin
 RESTART_POLICY=unless-stopped
 
+POSTGRES_USER=$POSTGRES_USER
+POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+POSTGRES_DB=$POSTGRES_DB
 POSTGRES_IMAGE_TAG=13-alpine
 POSTGRES_DATA_PATH=./volumes/db/var/lib/postgresql/data
 
@@ -25,7 +28,6 @@ MATTERMOST_LOGS_PATH=./volumes/app/mattermost/logs
 MATTERMOST_PLUGINS_PATH=./volumes/app/mattermost/plugins
 MATTERMOST_CLIENT_PLUGINS_PATH=./volumes/app/mattermost/client/plugins
 MATTERMOST_BLEVE_INDEXES_PATH=./volumes/app/mattermost/bleve-indexes
-
 
 MATTERMOST_IMAGE=mattermost-enterprise-edition
 MATTERMOST_IMAGE_TAG=6.3
